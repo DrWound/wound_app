@@ -1,0 +1,21 @@
+{
+    "name": "wound_app_devcontainer",
+    "build": {
+      "dockerfile": "Dockerfile",
+      "context": ".."
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-python.python",
+          "ms-toolsai.jupyter",
+          "ms-azuretools.vscode-docker"
+        ]
+      }
+    },
+    "settings": {
+      "python.pythonPath": "/usr/local/bin/python"
+    },
+    "postCreateCommand": "pip install -r requirements.txt"
+  }
+  

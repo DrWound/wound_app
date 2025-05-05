@@ -1,3 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+
+# 虛擬環境
 venv/
-venv/
-venv/
+ENV/
+env/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VSCode / 開發工具
+.vscode/
+
+# macOS 系統檔案
+.DS_Store
+._*
+
+# Streamlit secrets
+.streamlit/secrets.toml

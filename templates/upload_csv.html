@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>批次上傳醫師解說 CSV</title>
+  <style>
+    body { font-family: "Microsoft JhengHei", sans-serif; margin: 30px; background: #f4f4f4; }
+    .box { background: #fff; max-width: 500px; margin: auto; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h2 { text-align: center; color: #2e4a62; }
+    input[type="file"] { margin-top: 15px; }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background: #2e4a62;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    .message { margin-top: 15px; text-align: center; color: green; }
+    .error { color: red; }
+    .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 10px;
+      margin-top: 30px;
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      justify-content: start;
+    }
+    .nav-links a {
+      white-space: nowrap;
+      text-decoration: none;
+      color: #2e4a62;
+      padding: 8px 12px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 3px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>批次上傳醫師解說 CSV</h2>
+    <form method="POST" enctype="multipart/form-data">
+      <label>請選擇 UTF-8 CSV 檔案：</label>
+      <input type="file" name="csv_file" accept=".csv" required>
+      <button type="submit">上傳並匯入</button>
+    </form>
+    
+    <p style="text-align:center; margin-top:20px;">
+      📄 <a href="/static/batch_example.csv" download>下載範例 CSV 格式</a>
+    </p>
+    
+    {% if message %}
+      <p class="message">{{ message }}</p>
+    {% endif %}
+    {% if error %}
+      <p class="message error">{{ error }}</p>
+    {% endif %}
+    <div class="nav-links">
+      <a href="/">⬅ 返回首頁</a>
+      <a href="/upload_csv">📄 CSV 批次上傳醫師解說</a>
+      <a href="/cases">🔍 瀏覽所有已上傳案例總覽</a>
+      <a href="/archive">📦 歷史案例存檔</a>
+      <a href="/patient">🙋‍♂️ 病人查詢入口</a>
+    </div>
+  </div>
+</body>
+</html>

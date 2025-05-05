@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>AI 傷口分析系統</title>
+  <style>
+    body { font-family: "Microsoft JhengHei", sans-serif; margin: 20px; background: #f7f7f7; }
+    h1 { color: #b22222; }
+    img { max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0; border-radius: 8px; }
+    input, button, textarea { width: 100%; padding: 10px; margin-top: 8px; box-sizing: border-box; }
+    .image-box { margin-bottom: 30px; padding: 10px; background: #fff; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    .notice { color: red; font-weight: bold; }
+    .camera { color: green; }
+    pre { background: #eee; padding: 10px; border-radius: 5px; }
+    .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 10px;
+      margin-top: 30px;
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      justify-content: start;
+    }
+    .nav-links a {
+      white-space: nowrap;
+      text-decoration: none;
+      color: #2e4a62;
+      padding: 8px 12px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 3px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      body { margin: 10px; }
+      .image-box { padding: 8px; }
+      input, button { font-size: 16px; }
+      h1 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <p class="notice">
+    ⚠️ 本系統目前為 <strong>半人工標示</strong> 示意版本，請上傳圖檔與人工標示檔名相符（例如 IMG_9028.JPG），<br>
+    正式版將支援 AI 分析與醫師說明自動化。
+  </p>
+  <p class="camera">📸 可直接用手機拍照上傳傷口照片（啟用後鏡頭）</p>
+
+  <h1>上傳傷口照片進行分析</h1>
+  <form method="POST" action="/" enctype="multipart/form-data">
+    <label>請輸入傷口部位名稱（例如：左足底、右小腿）：</label>
+    <input type="text" name="wound_location" placeholder="請輸入傷口名稱" required>
+
+    <label>選擇一張或多張照片：</label>
+    <input type="file" name="images" accept="image/*" capture="environment" multiple required>
+
+    <button type="submit">上傳並分析</button>
+  </form>
+
+  {% if results %}
+    <hr>
+    {% for item in results %}
+      <div class="image-box">
+        <h3>原始圖片：</h3>
+        <img src="{{ item.original }}">
+        {% if item.result %}
+          <h3>標註後圖片：</h3>
+          <img src="{{ item.result }}">
+        {% endif %}
+        <h3>鄭文昌醫師解說：</h3>
+        <p>{{ item.explanation }}</p>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  <div class="nav-links">
+    <a href="/">⬅ 返回首頁</a>
+    <a href="/upload_csv">📄 CSV 批次上傳醫師解說</a>
+    <a href="/cases">🔍 瀏覽所有已上傳案例總覽</a>
+    <a href="/archive">📦 歷史案例存檔</a>
+    <a href="/patient">🙋‍♂️ 病人查詢入口</a>
+  </div>
+</body>
+</html>

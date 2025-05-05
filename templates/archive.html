@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>歷史案例存檔</title>
+  <style>
+    body { font-family: "Microsoft JhengHei", sans-serif; margin: 20px; background: #f9f9f9; }
+    h1 { color: #2e4a62; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f0f0f0; }
+    .note { font-size: 0.9em; color: gray; margin-top: 20px; }
+    .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 10px;
+      margin-top: 30px;
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      justify-content: start;
+    }
+    .nav-links a {
+      white-space: nowrap;
+      text-decoration: none;
+      color: #2e4a62;
+      padding: 8px 12px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 3px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>歷史案例存檔</h1>
+
+  <table>
+    <tr>
+      <th>圖片檔名</th>
+      <th>醫師解說</th>
+    </tr>
+    {% for filename, data in archive.items() %}
+    <tr>
+      <td>{{ filename }}</td>
+      <td>
+        {% if data.explanation %}
+          {{ data.explanation }}
+        {% else %}
+          {{ data }}
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <div class="nav-links">
+    <a href="/">⬅ 返回首頁</a>
+    <a href="/upload_csv">📄 CSV 批次上傳醫師解說</a>
+    <a href="/cases">🔍 瀏覽所有已上傳案例總覽</a>
+    <a href="/archive">📦 歷史案例存檔</a>
+    <a href="/patient">🙋‍♂️ 病人查詢入口</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>輸入醫師解說</title>
+  <style>
+    body { font-family: "Microsoft JhengHei", sans-serif; margin: 20px; background: #f5f5f5; }
+    label { display: block; margin-top: 15px; }
+    textarea { width: 100%; height: 100px; }
+    .success { color: green; margin-top: 10px; }
+    .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 10px;
+      margin-top: 30px;
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      justify-content: start;
+    }
+    .nav-links a {
+      white-space: nowrap;
+      text-decoration: none;
+      color: #2e4a62;
+      padding: 8px 12px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 3px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>輸入傷口說明（鄭文昌醫師）</h1>
+  <form method="POST">
+    <label for="filename">圖片檔名（如 IMG_9028.JPG）</label>
+    <input type="text" name="filename" required>
+
+    <label for="explanation">說明內容</label>
+    <textarea name="explanation" required></textarea>
+
+    <button type="submit">儲存解說</button>
+  </form>
+
+  {% if message %}
+    <p class="success">{{ message }}</p>
+  {% endif %}
+
+  <div class="nav-links">
+    <a href="/">⬅ 返回首頁</a>
+    <a href="/upload_csv">📄 CSV 批次上傳醫師解說</a>
+    <a href="/cases">🔍 瀏覽所有已上傳案例總覽</a>
+    <a href="/archive">📦 歷史案例存檔</a>
+    <a href="/patient">🙋‍♂️ 病人查詢入口</a>
+  </div>
+</body>
+</html>

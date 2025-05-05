@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>所有上傳圖片與解說總覽</title>
+  <style>
+    body { font-family: "Microsoft JhengHei", sans-serif; margin: 20px; background: #f7f7f7; }
+    h1 { color: #2e4a62; }
+    .case-box { background: #fff; padding: 15px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    img { max-width: 100%; margin-top: 10px; border-radius: 6px; }
+    .note { color: gray; font-size: 0.9em; }
+    .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 10px;
+      margin-top: 30px;
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      justify-content: start;
+    }
+    .nav-links a {
+      white-space: nowrap;
+      text-decoration: none;
+      color: #2e4a62;
+      padding: 8px 12px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 3px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>所有上傳圖片與解說總覽</h1>
+  {% for case in cases %}
+    <div class="case-box">
+      <strong>檔名：</strong> {{ case.filename }}<br>
+      <strong>醫師解說：</strong> {{ case.explanation }}
+      <img src="{{ url_for('uploaded_file', filename=case.filename) }}">
+    </div>
+  {% endfor %}
+
+  <div class="nav-links">
+    <a href="/">⬅ 返回首頁</a>
+    <a href="/upload_csv">📄 CSV 批次上傳醫師解說</a>
+    <a href="/cases">🔍 瀏覽所有已上傳案例總覽</a>
+    <a href="/archive">📦 歷史案例存檔</a>
+    <a href="/patient">🙋‍♂️ 病人查詢入口</a>
+  </div>
+</body>
+</html>

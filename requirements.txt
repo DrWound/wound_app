@@ -1,7 +1,27 @@
-blinker==1.9.0
-click==8.1.8
-Flask==3.0.0
-itsdangerous==2.2.0
-Jinja2==3.1.6
-MarkupSafe==3.0.2
-Werkzeug==3.1.3
+# Backend frameworks
+flask
+fastapi
+uvicorn
+
+# Streamlit App
+streamlit
+
+# Image processing and AI
+opencv-python
+numpy
+Pillow
+
+# JSON/YAML and other utilities
+python-multipart
+aiofiles
+requests
+
+# For Jupyter Notebooks
+ipykernel
+
+# Optional: If you use any ML models
+torch
+ultralytics
+
+# Optional: Web Frontend communication
+python-dotenv

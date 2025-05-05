@@ -1,0 +1,22 @@
+name: wound_app_env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - flask
+  - fastapi
+  - uvicorn
+  - streamlit
+  - opencv
+  - numpy
+  - pillow
+  - python-multipart
+  - aiofiles
+  - requests
+  - ipykernel
+  - pytorch
+  - pip
+  - pip:
+      - ultralytics
+      - python-dotenv

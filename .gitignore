@@ -25,3 +25,8 @@ env/
 
 # Streamlit secrets
 .streamlit/secrets.toml
+
+# 本地圖片與模型輸出暫存
+static/output/
+uploads/
+backend/streamlit_app/models/

@@ -9,13 +9,21 @@
 
     <form method="POST" enctype="multipart/form-data">
         <p>選擇圖片：</p>
-        <input type="file" name="file" required />
-        <button type="submit">上傳分析</button>
+        <input type="file" name="image" required />
+        <button type="submit">上傳並分析</button>
     </form>
 
     {% if result %}
         <h2>預測結果：</h2>
-        <pre>{{ result }}</pre>
+        <ul>
+        {% for label in result.labels %}
+            <li>
+                <strong>{{ label.class }}</strong>（信心值：{{ label.confidence }})<br>
+                {{ label.advice }}
+            </li>
+        {% endfor %}
+        </ul>
+
         <h2>上傳圖片：</h2>
         <img src="{{ url_for('static', filename='uploads/' + filename) }}" style="max-width: 300px;">
     {% endif %}

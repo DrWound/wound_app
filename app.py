@@ -5,7 +5,7 @@ from PIL import Image
 import uuid
 import json
 
-from wound_detector import WoundDetector  # ✅ 必加這行
+from wound_detector import WoundDetector
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
@@ -51,8 +51,6 @@ def index():
 
     return render_template("index.html", result=result, filename=filename)
 
-import os
-
+# ⛳ 這裡是一行就好，不要多餘 import os
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
-

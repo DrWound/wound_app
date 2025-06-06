@@ -4,7 +4,6 @@ import uuid
 from flask import Flask, render_template, request
 from ultralytics import YOLO
 from PIL import Image
-from wound_detector import WoundDetector  # ✅ 必加這行
 
 # 初始化 Flask
 app = Flask(__name__)
@@ -57,6 +56,6 @@ def index():
 
     return render_template("index.html", result=result, filename=filename)
 
-# ✅ 重要！Render 要綁 PORT 變數
+# ✅ Render 部署要綁 PORT 變數
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))

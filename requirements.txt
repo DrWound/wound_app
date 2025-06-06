@@ -2,3 +2,5 @@ flask==2.2.5
 ultralytics==8.1.22
 numpy
 Pillow
+python-dotenv
+gunicorn

@@ -1,0 +1,32 @@
+{
+  "wound-W1": {
+    "label": "W1 表皮傷口",
+    "mechanism": "上皮再生",
+    "advice": "第一層使用補丁凝膠塗抹後/貼上補丁貼",
+    "frequency": "1次/日"
+  },
+  "wound-W2": {
+    "label": "W2 淺層傷口",
+    "mechanism": "上皮收縮",
+    "advice": "依指示直接使用補丁泡棉覆蓋，包紮固定即可",
+    "frequency": "1次/日"
+  },
+  "wound-W2-crust-ring": {
+    "label": "W2 結痂環",
+    "mechanism": "輔助上皮收縮",
+    "advice": "保持乾燥，2週後可軟化去除",
+    "frequency": "視狀況調整"
+  },
+  "wound-W3": {
+    "label": "W3 深層傷口",
+    "mechanism": "肉芽增生",
+    "advice": "塗滿藻酸凝膠/貼上補丁貼，包紮固定",
+    "frequency": "1次/日（必要時增加）"
+  },
+  "wound-W4": {
+    "label": "W4 壞死傷口",
+    "mechanism": "建議就醫，需清創處理",
+    "advice": "請醫師協助手術治療",
+    "frequency": "立即處理"
+  }
+}

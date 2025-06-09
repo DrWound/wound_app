@@ -1,4 +1,20 @@
-.DS_Store
-._*
-*.pyc
+# Python cache
 __pycache__/
+*.pyc
+
+# VSCode
+.vscode/
+
+# Logs
+log/
+*.log
+
+# Mac 系統檔案
+.DS_Store
+
+# Python virtual env (如果你有建立 new_env/)
+new_env/
+
+# Build
+dist/
+build/
